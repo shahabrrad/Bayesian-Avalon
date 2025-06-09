@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/login.css">
+    <title>Avalon</title>
+</head>
+
+<body>
+    <script src="../js/index.ts" type="module"></script>
+    <section>
+        <div class="login-box">
+            <div class="form-value">
+                <div class="login-msg" style="display: none;"></div>
+                <h2>Avalon Login</h2>
+                <div class="login-msg" id="login-msg" style="display: none;"></div>
+                <div class="inputbox">
+                    <label for="">Username:</label>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                </div>
+                <div class="inputbox">
+                    <label for="">Password:</label>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="register">
+                    <p>Don't have a account? <a href="register.html">Register</a></p>
+                    <!-- <p>Don't have a account? <a href="register">Register</a></p> -->
+                </div>
+                <div id="browser-compatibility-msg" class="compatibility-msg"></div>
+                <input type="submit" id="login_button" class="button" value="Submit">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Browser compatibility check
+        document.addEventListener('DOMContentLoaded', function() {
+            const compatibilityMsg = document.getElementById('browser-compatibility-msg');
+            const loginButton = document.getElementById('login_button');
+            const registerLink = document.querySelector('.register');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            
+            // Check if browser is Chrome/Chromium
+            const isChromium = !!window.chrome;
+            const isChrome = isChromium && navigator.userAgent.indexOf("Chrome") > -1;
+            
+            if (isChrome) {
+                compatibilityMsg.textContent = "Your browser is supported.";
+                compatibilityMsg.classList.add('supported');
+                // loginButton.style.display = 'block';
+                // registerLink.style.display = 'block';
+                // usernameInput.disabled = false;
+                // passwordInput.disabled = false;
+            } else {
+                compatibilityMsg.textContent = "Your browser is not supported. Please use Chrome or a Chromium-based browser.";
+                compatibilityMsg.classList.add('not-supported');
+                // loginButton.style.display = 'none';
+                // registerLink.style.display = 'none';
+                // usernameInput.disabled = true;
+                // passwordInput.disabled = true;
+            }
+            
+            compatibilityMsg.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

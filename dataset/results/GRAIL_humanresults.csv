@@ -1,0 +1,91 @@
+OURS INFO,QUESTION NUMBER,PLAYER INFO,VOTE FOR AGENT,VOTE FOR AGENT,VOTE FOR AGENT,VOTE FOR HUMAN PLAYER
+Game 1,Question 1,evil 1,5,4,4,4
+EDVZ,Question 2,evil 1,4,5,4,4
+ours,Question 1,evil 2,5,5,5,4
+Good wins,Question 2,evil 2,5,5,5,4
+,Question 1,good,5,5,5,
+,Question 2,good,5,5,5,
+Game 1,Question 1,evil 1,4,4,4,5
+QMQQ,Question 2,evil 1,4,4,4,5
+ours,Question 1,evil 2,5,3,5,4
+Good wins,Question 2,evil 2,5,3,5,4
+,Question 1,good,4,4,4,
+,Question 2,good,4,4,4,
+Game 1,Question 1,evil 1,4,4,2,3
+YGRE,Question 2,evil 1,4,4,2,3
+ours,Question 1,evil 2,4,2,2,4
+Evil Wins,Question 2,evil 2,4,2,2,4
+,Question 1,good,4,4,3,
+,Question 2,good,4,4,3,
+Game 2,Question 1,evil 1,4,4,4,2
+IDLQ,Question 2,evil 1,4,4,4,2
+ours,Question 1,evil 2,2,5,5,2
+Good Wins,Question 2,evil 2,1,4,3,2
+,Question 1,good,4,5,4,
+,Question 2,good,4,5,4,
+Game 2,Question 1,evil 1,3,5,5,3
+TEFW,Question 2,evil 1,3,4,5,2
+ours,Question 1,evil 2,4,5,4,5
+Good Wins,Question 2,evil 2,4,5,5,5
+,Question 1,good,5,5,5,
+,Question 2,good,2,2,2,
+Game 2,Question 1,evil 1,1,2,3,3
+EZNO,Question 2,evil 1,5,4,2,3
+ours,Question 1,evil 2,2,3,3,4
+Evil Wins,Question 2,evil 2,2,4,4,3
+,Question 1,good,2,4,3,
+,Question 2,good,2,4,3,
+Game 2,Question 1,evil 1,3,3,4,4
+GZAP,Question 2,evil 1,3,3,4,4
+ours,Question 1,evil 2,4,3,3,3
+Evil Wins,Question 2,evil 2,4,4,4,3
+,Question 1,good,1,4,3,
+,Question 2,good,1,3,3,
+Game 1,Question 1,evil 1,2,4,5,4
+FDWF,Question 2,evil 1,4,4,5,4
+ours,Question 1,evil 2,2,4,4,5
+Evil Wins,Question 2,evil 2,4,3,4,4
+,Question 1,good,4,3,5,
+,Question 2,good,4,3,4,
+Game 1,Question 1,evil 1,2,2,5,1
+DUEZ,Question 2,evil 1,4,4,5,1
+ours,Question 1,evil 2,3,2,3,2
+Evil Wins,Question 2,evil 2,4,4,3,2
+,Question 1,good,2,2,3,
+,Question 2,good,2,2,4,
+Game 2,Question 1,evil 1,5,4,5,5
+NQYE,Question 2,evil 1,5,4,5,4
+ours,Question 1,evil 2,4,4,4,5
+Good Wins,Question 2,evil 2,4,5,4,3
+,Question 1,good,5,5,5,
+,Question 2,good,5,5,5,
+Game 1,Question 1,evil 1,3,3,4,4
+ZEHR,Question 2,evil 1,3,2,4,4
+ours,Question 1,evil 2,4,4,2,3
+Good Wins,Question 2,evil 2,4,4,3,3
+,Question 1,good,5,2,4,
+,Question 2,good,4,1,3,
+Game 1,Question 1,evil 1,5,5,5,5
+ZQBI,Question 2,evil 1,5,5,5,5
+ours,Question 1,evil 2,5,5,3,3
+Good Wins,Question 2,evil 2,4,4,3,4
+,Question 1,good,4,4,4,
+,Question 2,good,4,5,3,
+Game 2,Question 1,evil 1,4,4,4,4
+SBSS,Question 2,evil 1,3,3,4,5
+ours,Question 1,evil 2,4,4,4,3
+Good Wins,Question 2,evil 2,4,4,4,3
+,Question 1,good,4,4,4,
+,Question 2,good,5,5,5,
+Game 2,Question 1,evil 1,4,4,2,5
+OONF,Question 2,evil 1,4,4,2,5
+ours,Question 1,evil 2,4,5,2,5
+Good Wins,Question 2,evil 2,3,3,1,5
+,Question 1,good,4,5,3,
+,Question 2,good,4,5,4,
+Game 1,Question 1,evil 1,5,5,5,
+PXYY,Question 2,evil 1,5,5,5,
+ours - 4 agents,Question 1,evil 2,4.5,4.5,4.5,
+Good Wins,Question 2,evil 2,4.75,4.75,4.75,
+,Question 1,good,,,,
+,Question 2,good,,,,

@@ -1,0 +1,80 @@
+{
+    "server": {
+        "host": "0.0.0.0",
+        "port": 23001,
+        "debug": true
+    },
+    "flask": {
+        "secret_key": "OV5yRcfBODdwTWHH",
+        "flask_secret": "#FL^=Um$[xxKlDu0"
+    },
+    "agent": {
+        "host": "http://agent:23003/api",
+        "model": "gpt-4.1",
+        "local_model": "deepseek-r1:32b",
+        "deepseek_model": "deepseek-reasoner",
+        "deepseek_base_url": "https://api.deepseek.com",
+        "deepseek_use_ollama": false,
+        "openai_model": "o4-mini",
+        "openai_base_url": "https://api.openai.com/v1/",
+        "api_key": "",
+        "use_json_mode": false,
+        "hf_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+        "typechat_temperature": 1.0,
+        "typechat_context_length": 8000,
+        "delay_messages": false
+    },
+    "game": {
+        "use_real_names": false,
+        "max_players": 6,
+        "roles": [
+            "servant-1",
+            "servant-2",
+            "servant-3",
+            "servant-4",
+            "minion-1",
+            "minion-2"
+        ],
+        "turn_time": 120,
+        "quest_party_size": [
+            2,
+            3,
+            4,
+            3,
+            4
+        ],
+        "vote_time": 60,
+        "persuasion_strategy": [
+            "Assertion",
+            "Questioning",
+            "Suggestion",
+            "Agreement",
+            "Logical Deduction",
+            "Compromise/Concession",
+            "Critique/Opposition",
+            "Appeal/Defense"
+        ],
+        "player_names": [
+            "Ava",
+            "Ben",
+            "Cleo",
+            "Dan",
+            "Eve",
+            "Finn",
+            "Gia",
+            "Hugo",
+            "Ivy",
+            "Jax",
+            "Kai",
+            "Leo",
+            "Mia",
+            "Nina",
+            "Omar",
+            "Pia",
+            "Quinn",
+            "Rex",
+            "Sam",
+            "Tia"
+        ]
+    }
+}

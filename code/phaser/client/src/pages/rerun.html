@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../styles/game.css">
+    <title>Avalon</title>
+    <script type="text/javascript" src="../scripts/help-dialogue.js"></script>
+</head>
+
+<body>
+
+    <section>
+        <div class="info-box">
+            <div id="waiting_a">
+                <h3 style="text-align: center;">Waiting for players...</h3>
+            </div>
+            <div id="hider_a" style="display: none;">
+                <h2>Game Chat</h2>
+                <div class="chat" id="chat"></div><br>
+                <input class="input-text" id="text" size="76" placeholder="Enter your message here" maxlength="200">
+                <p id="x_is_typing" style="color: lightgray; font-size: 14px;"></p>
+            </div>
+        </div>
+        <div class="info-box">
+            <div id="waiting_b">
+                <h3 style="text-align: center;">Waiting for players...</h3>
+            </div>
+            <div id="hider_b" style="display: none;">
+                <div class="table">
+                    <div class="loading-bar">
+                    </div>
+                    <div class="player-box" id="player-box">
+                    </div>
+                    <div class="quest-bar" id="quest-bar"></div>
+                    <div class="party-bar" id="party-bar"></div>
+                    <div class="voting-bar">
+                        <div id="voting-task" style="display: none">Do you approve of the proposed party?</div>
+                        <div class="voting-buttons">
+                            <button type="button" class="button vote-button" id="prev_button"
+                                style="display: block">Prev</button>
+                            <button type="button" class="button vote-button" id="next_button"
+                                style="display: block">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="customDialog" class="dialog hidden">
+            <div class="dialog-content">
+                <p id="dialogMessage">Are you really sure?</p>
+                <button id="confirmYes">Yes</button>
+                <button id="confirmNo">No</button>
+            </div>
+        </div>
+        <div class="game-id-box" id="game-id-box">
+            Game-ID: ???
+        </div>
+        <div class="help-button">
+            <button type="button" class="help_button" id="help_button">How to Play</button>
+        </div>
+        <div class="logout-button">
+            <button type="help-button" class="help_button"  onclick="location.href='./admin.html'">Return to Admin</button>
+        </div>
+        <div class="help-box" id="help_box">
+            <h2>How to Play</h2>
+            <p>The Resistance: Avalon is the game of hidden loyalty. Players are either Loyal Servants of Arther
+                fighting for Goodness and honor or aligned with the Evil ways of Mordred. Good wins the game by
+                successfully completing three Quests. Evil
+                wins if three Quests end in failure. Evil can also win if 5 consecutive party proposals for a single quest are rejected.
+                Players may make any claims during their turns. Discussion, deception,
+                accusation, and logical deducation
+                are all equally important in order for Good to prevail or Evil to rule the day.</p>
+            <p>Before playing a game, please
+                <a href="https://avalon.fun/pdfs/rules.pdf">check out the official rules.</a> The differences in this
+                version of The Resistance: Avalon in comparison to these rules will be explained below.
+            </p><br>
+            <h3>Roles</h3>
+            <p>In this version of The Resistance, six players will each play as one of two roles:</p>
+            <div class="help-box-role">
+                <img src="../img/servant-1.png" class="help-box-image" />
+                <img src="../img/servant-2.png" class="help-box-image" />
+                <img src="../img/servant-3.png" class="help-box-image" />
+                <img src="../img/servant-4.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <b></b>
+                    Servant (4 total)
+                    <p>Servants are on the side of Good but do all other player's roles are unknown to them. There are 4 Servants in this game.</p>
+                </div>
+            </div>
+            <div class="help-box-role">
+                <img src="../img/minion-1.png" class="help-box-image" />
+                <img src="../img/minion-2.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <b>Minion (2 total)</b>
+                    <p>Minions are on the side of Evil and know who the other evil players are.</p>
+                    <p>Minion players will see a red ring on each evil player in the game, including themselves. There are 2 Minions in this game.</p>
+                </div>
+            </div>
+
+            <div class="help-box-role">
+                <img src="../img/tutorial/minions_example.png"  style="width: 200x;" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <p>For example, in this scenario, Paul is the the current player and knows that Jane is the other Minion.</p>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+                <h3>Win Conditions: Evil</h3>
+                <div style="padding-left: 12px">
+                <ul>
+                    <li>Three quests fail
+                    </li>
+                    <li>
+                        Five parties are rejected within a single quest.
+                    </li>
+                </ul>
+
+                <br>
+
+                <h3>Win Conditions: Good</h3>
+                <ul>
+                    <li>Three quests succeed
+                    </li>
+                </ul>
+                </div>
+
+            <br>
+            <h3>Communication</h3>
+            <div class="help-box-role">
+            <img src="../img/tutorial/chat_box.png"  style="width: 500px;" />
+            <div class="help-box-role-text" style="width: calc(100% - 160px);">
+            <p>For the purposes of this research study, communication between the players will be conducted through
+                turns. During each player's turn, they will be able to communicate through the chat window, responding
+                to previous questions or accusations,
+                making new statements, and asking questions to other players. However, only the player whose turn it is
+                will be able to use the chat. Please only communicate with the players within the chat interface provided in
+                this version of the game.</p>
+            </div>
+            </div>
+
+            <br>
+            <br>
+            <h3>The Game Board</h3>
+            <img src="../img/tutorial/avalon_env.png" style="width: 100%; max-width: 900px;"  />
+
+            <div class="help-box-role">
+                <img src="../img/quest-fail.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                <p>Failed quest result</p>
+                </div>
+            </div>
+
+            <div class="help-box-role">
+                <img src="../img/quest-success.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                <p>Successful quest result</p>
+                </div>
+            </div>
+
+            <div class="help-box-role">
+                <img src="../img/chip.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                <p>Rejected party proposal</p>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <h3>Turns</h3>
+            <div class="help-box-role">
+                <img src="../img/jester.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <b>Player turn</b>
+                <p>The jester hat over a player indicates that it is their turn. Player turns start from the top left and loop clockwise throughout the game. During their turn a player may send messages or end their turn. </p>
+            </div>
+            </div>
+            <div class="help-box-role">
+                <img src="../img/crown.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <b>Leader</b>
+                <p>The crown over a player indicates the current quest leader. During their turn, a quest leader may send messages, propose parties for the current quest, start a round of discussion,
+                    or start a party vote. </p>
+                <p>The quest leader has to allow one round of discussion prior to being able to initiate a party vote.
+                    However, party proposals can be changed whenever it is the turn of the leader. </p>
+            </div>
+            </div>
+
+            <br>
+            <h3>Parties</h3>
+            <div class="help-box-role">
+                <img src="../img/shield.png" class="help-box-image" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <b>Party members</b>
+                    <p>Parties are indicated by a little shield icon next to a player's profile. Players with a shield are part of the party. Players without a shield are not included the party.</p>
+            </div>
+            </div>
+            <br>
+            <h3>Proposing Parties</h3>
+            <div class="help-box-role">
+                <img src="../img/tutorial/party_proposal.png"  style="min-width: 500px; max-width: 800px;" />
+                <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                    <p>The quest leader can add players to the party by clicking on their profile picture frame. To unselect a player, click their profile picture frame again to remove the shield. Once the required number of players is selected, click the 'Confirm Party' button to finalize your selection. After confirming the party, start a vote by clicking the 'Vote for Party' button, or click 'End Turn' to initiate a round of discussion.</p>
+                </div>
+                </div>
+
+                <br>
+
+                <h3>Party Votes</h3>
+                <div class="help-box-role">
+                    <img src="../img/tutorial/party_vote.png"  style="min-width: 500px; max-width: 800px;" />
+                    <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                        <p>If a party vote is active, you will be asked to vote on the current proposed party. Click 'yes' or 'no' to cast your vote. The party details will also appear in the game chat, and all party votes will be displayed there.</p>
+                    </div>
+                </div>
+
+                <br>
+
+                <h3>Quest Votes</h3>
+                <div class="help-box-role">
+                    <img src="../img/tutorial/quest_vote.png"  style="min-width: 500px; max-width: 800px;" />
+                    <div class="help-box-role-text" style="width: calc(100% - 160px);">
+                        <p>If you are a member of an approved party, you will be asked to vote on whether the quest fails or succeeds. Click 'yes' or 'no' to cast your vote. Your quest vote will <strong> NOT</strong> be visible to any players!</p>
+                    </div>
+                </div>
+        </div>
+
+    </section>
+    <script src="../js/rerun.ts" type="module"></script>
+</body>
+
+</html>

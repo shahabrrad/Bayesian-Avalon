@@ -1,0 +1,228 @@
+services:
+  client:
+    build: 
+      context: ./phaser/client
+      dockerfile: Dockerfile
+    volumes:
+      - ./phaser/client:/app
+      - /app/node_modules  # Preserve container's node_modules
+    ports:
+      - "1234:1234"
+    networks:
+      - avalon-network
+    environment:
+      - SERVER_URL=http://127.0.0.1:2567
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./phaser/server
+      dockerfile: Dockerfile
+    volumes:
+      - ./phaser/server:/app
+      - /app/node_modules  # Preserve container's node_modules
+      - ./config.json:/app/config.json  # Mount config.json as a volume
+    depends_on:
+      - agentmanager
+    ports:
+      - "2567:2567"
+    networks:
+      - avalon-network
+    hostname: server  # Explicitly set the hostname
+    environment:
+      - AGENT_SERVICE_URL=http://agentmanager:23003
+
+  agentmanager:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile
+    volumes:
+      - ./agent:/app
+      - /app/node_modules 
+      - ./config.json:/app/config.json  # Mount config.json as a volume
+    ports:
+      - "23003:23003"  # Expose the agent manager port
+      - "23004:23004"  # Expose the LLM server port
+    networks:
+      - avalon-network
+    hostname: agentmanager  # Explicitly set the hostname
+    env_file:
+      - .env
+  
+  # agent:
+  #   build:
+  #     context: ./agent
+  #     dockerfile: Dockerfile.agent
+  #   image: avalon-agent
+  #   deploy:
+  #     - replicas: 0
+
+  minion-1:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    image: avalon-agent
+    depends_on:
+      - agentmanager
+    volumes:
+      - ./agent:/app
+      # - ./config.json:/app/config.json  # Mount config.json as a volume
+      - ./config_minion.json:/app/config.json  # Mount config.json as a volume
+
+    ports:
+      - "23005:23005"  # Expose the agent manager port
+    networks:
+      - avalon-network
+    hostname: minion1  # Explicitly set the hostname
+    env_file:
+      - .env
+    environment:
+      ROLE: "minion-1"
+      FASTAPI_PORT: "23005"
+
+  minion-2:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    image: avalon-agent
+    depends_on:
+      - agentmanager
+    volumes:
+      - ./agent:/app
+      # - ./config.json:/app/config.json  # Mount config.json as a volume
+      - ./config_minion.json:/app/config.json  # Mount config.json as a volume
+
+    ports:
+      - "23006:23006"  # Expose the agent manager port
+    networks:
+      - avalon-network
+    hostname: minion2  # Explicitly set the hostname
+    env_file:
+      - .env
+    environment:
+      ROLE: "minion-2"
+      FASTAPI_PORT: "23006"
+
+  servant-4:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    image: avalon-agent
+    depends_on:
+      - agentmanager
+    volumes:
+      - ./agent:/app
+      # - ./config.json:/app/config.json  # Mount config.json as a volume
+      - ./config_servant.json:/app/config.json  # Mount config.json as a volume
+
+    ports:
+      - "23007:23007"  # Expose the agent manager port
+    networks:
+      - avalon-network
+    hostname: servant4  # Explicitly set the hostname
+    env_file:
+      - .env
+    environment:
+      ROLE: "servant-4"
+      FASTAPI_PORT: "23007"
+
+  servant-3:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    image: avalon-agent
+    depends_on:
+      - agentmanager
+    volumes:
+      - ./agent:/app
+      # - ./config.json:/app/config.json  # Mount config.json as a volume
+      - ./config_servant.json:/app/config.json  # Mount config.json as a volume
+
+    ports:
+      - "23008:23008"  # Expose the agent manager port
+    networks:
+      - avalon-network
+    hostname: servant3  # Explicitly set the hostname
+    env_file:
+      - .env
+    environment:
+      ROLE: "servant-3"
+      FASTAPI_PORT: "23008"
+
+  servant-1:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    image: avalon-agent
+    depends_on:
+      - agentmanager
+    volumes:
+      - ./agent:/app
+      # - ./config.json:/app/config.json  # Mount config.json as a volume
+      - ./config_servant.json:/app/config.json  # Mount config.json as a volume
+
+    ports:
+      - "23009:23009"  # Expose the agent manager port
+    networks:
+      - avalon-network
+    hostname: servant1  # Explicitly set the hostname
+    env_file:
+      - .env
+    environment:
+      ROLE: "servant-1"
+      FASTAPI_PORT: "23009"
+
+  servant-2:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    image: avalon-agent
+    depends_on:
+      - agentmanager
+    volumes:
+      - ./agent:/app
+      # - ./config.json:/app/config.json  # Mount config.json as a volume
+      - ./config_servant.json:/app/config.json  # Mount config.json as a volume
+    ports:
+      - "23010:23010"  # Expose the agent manager port
+    networks:
+      - avalon-network
+    hostname: servant2  # Explicitly set the hostname
+    env_file:
+      - .env
+    environment:
+      ROLE: "servant-2"
+      FASTAPI_PORT: "23010"
+
+# for local testing
+#   ollama:
+#     build:
+#       context: .  # Add the build context
+#       dockerfile: Dockerfile.ollama
+#     image: ollama/ollama
+#     container_name: ollama
+#     restart: unless-stopped
+#     ports:
+#       - "11434:11434"  # Expose the port
+#     networks:
+#       - avalon-network
+#     hostname: ollama  # Explicitly set the hostname
+#     # deploy:
+#     #   resources:
+#     #     reservations:
+#     #       devices:
+#     #         - driver: nvidia
+#     #           count: all
+#     #           capabilities: [gpu]
+#     # runtime: nvidia
+#     # environment:
+#     #   - NVIDIA_VISIBLE_DEVICES=all
+#     #   - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+# volumes:
+#   ollama:  # Define named volume
+
+networks:
+  avalon-network:
+    driver: bridge

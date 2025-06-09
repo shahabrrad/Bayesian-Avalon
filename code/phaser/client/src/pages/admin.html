@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Avalon</title>
+    <script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/help-dialogue.js"></script>
+    <script src="../js/admin.ts" type="module"></script>
+</head>
+
+<body>
+    <section>
+        <div class="info-box">
+            <h2>Games List</h2>
+            <hr>
+            
+            <ul id="room_list"></ul>
+        </div>
+        <div class="info-box">
+            <h2>Game Management</h2>
+            <hr>
+            <!-- <form action="/game" method="get"> -->
+            <h4 style="color:white; margin-bottom: 12px;">Players in lobby:</h4>
+            <ul id="lobby_players">
+              
+            </ul>
+            <input class="button" id="create_game_button" type="submit"  value="Create Game"></input>
+            <!-- </form> -->
+        </div>
+        <div class="info-box">
+            <h2>Rerun Log Game</h2>
+            <hr>
+            <input type="text" id="game-id" name="game-id" placeholder="Game ID" maxlength="4">
+            <input class="button" id="rerun_game_button" type="submit"  value="Run game"></input>
+        </div>
+    
+    </section>
+</body>
+</html>

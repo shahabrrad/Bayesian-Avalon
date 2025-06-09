@@ -1,0 +1,26 @@
+FROM ollama/ollama:latest
+
+WORKDIR /app
+
+# Create a startup script that will run the server
+RUN echo '#!/bin/bash\n\
+# Check if model exists, if not pull it\n\
+if ! ollama list | grep -q "deepseek-r1:32b"; then\n\
+  echo "Model not found, pulling deepseek-r1:32b..."\n\
+  ollama pull deepseek-r1:32b\n\
+fi\n\
+\n\
+# Start ollama server in foreground\n\
+exec ollama serve\n\
+' > /app/start.sh && chmod +x /app/start.sh
+
+# Pull the model during build
+RUN ollama serve & \
+    sleep 10 && \
+    ollama pull deepseek-r1:32b && \
+    sleep 5 && \
+    pkill -f ollama
+
+# Use the startup script as the entrypoint
+ENTRYPOINT ["/app/start.sh"]
+

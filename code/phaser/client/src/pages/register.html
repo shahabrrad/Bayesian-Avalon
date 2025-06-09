@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../styles/login.css">
+    <title>Avalon</title>
+</head>
+
+<body>
+    <script src="../js/register.ts" type="module"></script>
+    <section>
+        <div class="register-box">
+            <div class="form-value">
+                    <h2>Registration</h2>
+                    <h3>Informed Consent</h3>
+                    <div class="consent">
+                        <h3 class="ctitle">Introduction</h3>
+                        The purpose of this research is to investigate using Theory-of-Mind in dialogue within social deduction games. The main purpose of this study will remain hidden from you to ensure unbiased answers. Through this form, you consent that some information about the goal of the study will not be shared with you.
+                        The total amount of time you will be in this study is approximately 60 to 90 minutes. During your participation, you will be asked to play two games of “The Resistance: Avalon” through the application provided to you.
+                        Taking part in this research involves the following risks or discomforts: eye fatigue from staring at a monitor, or discomfort from sitting for an extended period that are no greater than typically encountered in daily life. There may not be benefits to you. The benefits to society include gathering data about social settings that require deduction, deception, and persuasion. 
+                        This study is not anticipated to generate any privacy concerns during recruitment. Within the game, you will be assigned a randomly selected generic name to protect your identity from other participants.
+                        <h3 class="ctitle">Your Rights</h3>
+                        Content removed for anonymity.
+                        <h3 class="ctitle">Contact</h3>
+                        Content removed for anonymity.
+                    </div>
+                    <h3>Create Account</h3>
+                    <div class="login-msg error-msg" id="login-msg" style="display: none;"></div>
+                        <div class="inputbox">
+                            <div for="">Username:</div>
+                            <input type="text" name="username" id="username" placeholder="Alphanumeric characters only" pattern="[a-zA-Z0-9]+" title="" required>
+                            <div class="inputbox--error" id="username-error"></div>
+                        </div>
+                        <div class="inputbox">
+                            <div for="">Password:</div>
+                            <input type="password" name="password" id="password" placeholder="must be at least 6 characters" minlength="6" required>
+                            <div class="inputbox--error" id="password-error"></div>
+                        </div>
+                    <input type="checkbox" id="agree" name="agree" value="true" required>
+                    <label class="cbx_consent" for="agree" >>By checking this box, you agree that the above terms and agree to participate in this research study.</label> 
+                    <div class="inputbox--error" id="checkbox-error"></div>
+                    <button type="submit" value="Submit" id="registration_btn">Submit</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
